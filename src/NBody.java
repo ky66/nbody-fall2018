@@ -51,33 +51,33 @@ public class NBody {
 		double dt = 25000.0;
 		String filename = "/Users/kamyaryazdani/nbody-fall2018/data/planets.txt";
 		double radius = readRadius(filename);
-		Body[] planets = readBodies(filename);
+		Body[] bodies = readBodies(filename);
 		StdDraw.setScale(-radius, radius);
 		StdDraw.picture(0, 0, "starfield.jpg");
-		for (Body a : planets) {
+		for (Body a : bodies) {
 			a.draw();
 		}
 		double t = 0;
 		for (t = 0; t < T; t += dt) {
-			double[] xForces = new double[planets.length];
-			double[] yForces = new double[planets.length];
-			for(int i =0;i<planets.length;i++){
-			xForces[i]=planets[i].calcNetForceExertedByX(planets);
-			yForces[i]=planets[i].calcNetForceExertedByY(planets);}
-		    for(int j = 0; j<planets.length;j++){
-			planets[j].update(dt, xForces[j], yForces[j]);}
+			double[] xForces = new double[bodies.length];
+			double[] yForces = new double[bodies.length];
+			for(int i =0;i<bodies.length;i++){
+			xForces[i]=bodies[i].calcNetForceExertedByX(bodies);
+			yForces[i]=bodies[i].calcNetForceExertedByY(bodies);}
+		    for(int j = 0; j<bodies.length;j++){
+		    	bodies[j].update(dt, xForces[j], yForces[j]);}
 			StdDraw.picture(0, 0, "starfield.jpg");
-			for (Body a : planets) {
+			for (Body a : bodies) {
 				a.draw();}
 			StdDraw.show(10);}
 		
-		System.out.printf("%d\n", planets.length);
+		System.out.printf("%d\n", bodies.length);
 		System.out.printf("%.2e\n", radius);
-		for (int i = 0; i < planets.length; i++) {
+		for (int i = 0; i < bodies.length; i++) {
 		    System.out.printf("%11.4e %11.4e %11.4e %11.4e %11.4e %12s\n",
-		                      planets[i].myXPos, planets[i].myYPos, 
-		                      planets[i].myXVel, planets[i].myYVel, 
-		                      planets[i].myMass, planets[i].myFileName);	
+		    		 bodies[i].getX(), bodies[i].getY(), 
+		    		 bodies[i].getXVel(), bodies[i].getYVel(), 
+		    		 bodies[i].getMass(), bodies[i].getName());		
 		}
 		// more code here
 	}
