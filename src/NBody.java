@@ -1,7 +1,7 @@
 	
 
 /**
- * @author YOUR NAME THE STUDENT IN 201
+ * @author Kamyar Yazdani
  * 
  * Simulation program for the NBody assignment
  */
@@ -23,11 +23,13 @@ public class NBody {
 	
 		// TODO: read values at beginning of file to
 		// find the radius
+		s.nextDouble();
+		double radius = s.nextDouble();
+//		double radius2 = radius.nextDouble();
 		
 		s.close();
 		
-		// TODO: return radius read
-		return 0;	
+		return radius;
 	}
 	
 	/**
@@ -41,7 +43,7 @@ public class NBody {
 		
 			Scanner s = new Scanner(new File(fname));
 			
-			// TODO: read # bodies, create array, ignore radius
+			int numberofbodies = s.nextInt();
 			int nb = 0; // # bodies to be read
 			
 			for(int k=0; k < nb; k++) {
@@ -53,7 +55,7 @@ public class NBody {
 			s.close();
 			
 			// TODO: return array of body objects read
-			return null;
+			return "A";
 	}
 	public static void main(String[] args) throws FileNotFoundException{
 		double totalTime = 157788000.0;
@@ -76,9 +78,14 @@ public class NBody {
 			
 			// TODO: create double arrays xforces and yforces
 			// to hold forces on each body
+			double [] xforces;
+			double [] yforces;
 			
 			// TODO: loop over all bodies, calculate
 			// net forces and store in xforces and yforces
+			for (Body b: bodies) {
+				
+			}
 			
 			// TODO: loop over all bodies and call update
 			// with dt and corresponding xforces, yforces values
