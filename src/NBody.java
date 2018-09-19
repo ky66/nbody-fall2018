@@ -69,7 +69,7 @@ public class NBody {
 
 		double T = 157788000.0;
 		double dt = 25000.0;
-		String filename = "./data/planets.txt";
+		String filename = "/Users/kamyaryazdani/nbody-fall2018/data/planets.txt";
 		double radius = readRadius(filename);
 		Body[] planets = readBodies(filename);
 		StdDraw.setScale(-radius, radius);
