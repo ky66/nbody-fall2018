@@ -1,12 +1,12 @@
 import java.lang.Math.*;
 
 public class Body  {
-	private double myXPos;
-	private double myYPos;
-	private double myXVel;
-	private double myYVel;
-	private double myMass;
-	private String myFileName;
+	double myXPos;
+	double myYPos;
+	double myXVel;
+	double myYVel;
+	double myMass;
+	String myFileName;
 	
 	
 	public Body (double xp, double yp, double xv, double yv, double Mass, String filename) {
@@ -111,6 +111,11 @@ public class Body  {
 		
 		
 		
+		
+	}
+	public void draw() {
+		StdDraw.picture(myXPos, myYPos, "images" + myFileName);
+		// TODO Auto-generated method stub
 		
 	}
 }
