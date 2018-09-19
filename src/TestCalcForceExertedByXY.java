@@ -1,5 +1,4 @@
 
-import java.math.*;
 
 /**
  *  Tests calcPairwiseForce

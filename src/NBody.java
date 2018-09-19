@@ -44,21 +44,24 @@ public class NBody {
 		}
 		return result;
 	}
-
-	public static void main(String[] args) {
-
-		double T = 157788000.0;
+	public static void main(String[] args) throws FileNotFoundException{
+		double totalTime = 157788000.0;
 		double dt = 25000.0;
-		String filename = "/Users/kamyaryazdani/nbody-fall2018/data/planets.txt";
-		double radius = readRadius(filename);
-		Body[] bodies = readBodies(filename);
+		
+		String fname= "./data/planets.txt";
+		if (args.length > 2) {
+			totalTime = Double.parseDouble(args[0]);
+			dt = Double.parseDouble(args[1]);
+			fname = args[2];
+		}	
+		
+		Body[] bodies = readBodies(fname);
+		double radius = readRadius(fname);
+		
 		StdDraw.setScale(-radius, radius);
-		StdDraw.picture(0, 0, "starfield.jpg");
-		for (Body a : bodies) {
-			a.draw();
-		}
+		StdDraw.picture(0,0,"images/starfield.jpg");
 		double t = 0;
-		for (t = 0; t < T; t += dt) {
+		for (t = 0; t < totalTime; t += dt) {
 			double[] xForces = new double[bodies.length];
 			double[] yForces = new double[bodies.length];
 			for(int i =0;i<bodies.length;i++){
@@ -66,7 +69,8 @@ public class NBody {
 			yForces[i]=bodies[i].calcNetForceExertedByY(bodies);}
 		    for(int j = 0; j<bodies.length;j++){
 		    	bodies[j].update(dt, xForces[j], yForces[j]);}
-			StdDraw.picture(0, 0, "starfield.jpg");
+			StdDraw.picture(0, 0, "/Users/kamyaryazdani/nbody-fall2018/images/starfield.jpg");
+			System.out.println(bodies);
 			for (Body a : bodies) {
 				a.draw();}
 			StdDraw.show(10);}

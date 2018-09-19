@@ -114,7 +114,7 @@ public class Body  {
 		
 	}
 	public void draw() {
-		StdDraw.picture(myXPos, myYPos, "images" + myFileName);
+		StdDraw.picture(myXPos, myYPos, "/Users/kamyaryazdani/nbody-fall2018/images/" + myFileName);
 		// TODO Auto-generated method stub
 		
 	}
