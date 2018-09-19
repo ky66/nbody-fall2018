@@ -98,13 +98,13 @@ public class Body  {
 		double ax = xforce/this.myMass;
 		double ay = yforce/this.myMass;
 		double nvx = this.myXVel + deltaT*ax;
-		double nvy = this.myXVel + deltaT*ay;
+		double nvy = this.myYVel + deltaT*ay;
 		double nx = this.myXPos + deltaT*nvx;
-		double ny = this.myXPos + deltaT*nvy;
-		double myXPos = nx;
-		double myYPos = ny;
-		double myXVel = nvx;
-		double myYVel = nvy;
+		double ny = this.myYPos + deltaT*nvy;
+		this.myXPos = nx;
+		this.myYPos = ny;
+		this.myXVel = nvx;
+		this.myYVel = nvy;
 		
 		
 		
