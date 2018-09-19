@@ -1,45 +1,25 @@
-	
-
-/**
- * @author Kamyar Yazdani
- * 
- * Simulation program for the NBody assignment
- */
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class NBody {
-	
-	/**
-	 * Read the specified file and return the radius
-	 * @param fname is name of file that can be open
-	 * @return the radius stored in the file
-	 * @throws FileNotFoundException if fname cannot be open
-	 */
-	public static double readRadius(String fname) throws FileNotFoundException  {
-		Scanner s = new Scanner(new File(fname));
-	
-		// TODO: read values at beginning of file to
-		// find the radius
-		s.nextDouble();
-		double radius = s.nextDouble();
-//		double radius2 = radius.nextDouble();
-		
-		s.close();
-		
-		return radius;
+	public static double readRadius(String x)
+
+	{
+
+		Scanner input = null;
+		File file = new File(x);
+		try {
+			input = new Scanner(file);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		input.nextDouble();
+		double b = input.nextDouble();
+		return b;
 	}
-	
-	/**
-	 * Read all data in file, return array of Celestial Bodies
-	 * read by creating an array of Body objects from data read.
-	 * @param fname is name of file that can be open
-	 * @return array of Body objects read
-	 * @throws FileNotFoundException if fname cannot be open
-	 */
-	public static Body[] readBodies (String x) {
+
+	public static Body[] readBodies(String x) {
 		Scanner input = null;
 		int i = 0;
 		File file = new File(x);
@@ -65,7 +45,7 @@ public class NBody {
 		return result;
 	}
 
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) {
 
 		double T = 157788000.0;
 		double dt = 25000.0;
@@ -102,4 +82,3 @@ public class NBody {
 		// more code here
 	}
 }
-
