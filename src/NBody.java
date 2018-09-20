@@ -45,10 +45,10 @@ public class NBody {
 		return result;
 	}
 	public static void main(String[] args) throws FileNotFoundException{
-		double totalTime = 157788000.0;
+		double totalTime = 1577880.0;
 		double dt = 25000.0;
 		
-		String fname= "./data/planets.txt";
+		String fname= "/Users/kamyaryazdani/nbody-fall2018/data/planets.txt";
 		if (args.length > 2) {
 			totalTime = Double.parseDouble(args[0]);
 			dt = Double.parseDouble(args[1]);
@@ -70,7 +70,6 @@ public class NBody {
 		    for(int j = 0; j<bodies.length;j++){
 		    	bodies[j].update(dt, xForces[j], yForces[j]);}
 			StdDraw.picture(0, 0, "/Users/kamyaryazdani/nbody-fall2018/images/starfield.jpg");
-			System.out.println(bodies);
 			for (Body a : bodies) {
 				a.draw();}
 			StdDraw.show(10);}
